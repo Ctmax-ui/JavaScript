@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Tabs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        :root{
+            --border-outline-color: #ffa500;
+        }
+
+        h1{
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .container {
+            width: 900px;
+            height: auto;
+            margin: auto;
+            padding: 30px;
+            background-color: #f2f2f2;
+        }
+
+        .zx-tab-btn-group {
+            display: flex;
+            justify-content: space-between;
+            width: max-content;
+            margin: auto;
+            margin-bottom: 30px;
+        }
+
+        .zx-btn {
+            padding: 10px 30px;
+            font-size: 18px;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+            transition: all .2s ease;
+        }
+
+        .btn-hide {
+            /* border-radius: 0 0 0 0; */
+            border-color: var(--border-outline-color);
+            border-bottom: 3px ridge var(--border-outline-color);
+            border-style: solid;
+            border-top: 3px solid transparent;
+            border-right: 3px solid transparent;
+            border-left: 3px solid transparent;
+            
+        }
+        
+        .btn-show {
+            border-radius: 5px 5px 0 0;
+            border-bottom: 3px solid transparent !important;
+            border-top: 3px solid var(--border-outline-color) !important;
+            border-left: 3px solid var(--border-outline-color) !important;
+            border-right: 3px solid var(--border-outline-color) !important;
+        }
+
+
+        .zx-tab-menu {
+            /* background-color: #a1a0a0; */
+            /* border: 2px solid red; */
+            padding: 20px;
+        }
+
+        .zx-tabs-hidden {
+            display: none;
+        }
+
+        .zx-tabs-show {
+            display: block !important;
+        }
+
+        .zx-tabs>* {
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>  
+    <h1>JS Tabs</h1>
+    <div class="container">
+        <div class="zx-tab-btn-group">
+            <button class="zx-btn btn-hide" data-fortab="1">Tab 1</button>
+            <button class="zx-btn btn-hide" data-fortab="2">Tab 2</button>
+            <button class="zx-btn btn-hide btn-show" data-fortab="3">Tab 3</button>
+            <button class="zx-btn btn-hide" data-fortab="4">Tab 4</button>
+        </div>
+        <div class="zx-tab-menu">
+
+            <div class="zx-tabs zx-tabs-hidden" data-tab="1">
+                <h2>Content 1</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vel in optio, inventore illum beatae
+                    natus molestiae qui omnis minima iste eaque ipsa ea cumque quas maiores ratione vitae aliquid earum?
+                    Aperiam saepe, nesciunt ipsam cum vitae aspernatur velit nisi.</p>
+                <h2>Lorem ipsum dolor sit.</h2>
+                <button>Submit</button>
+                <button class="zx-btn" data-fortab="4">Tab 4</button>
+            </div>
+
+            <div class="zx-tabs zx-tabs-hidden" data-tab="2">
+                <h2>Content 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vel in optio, inventore illum beatae
+                    natus molestiae qui omnis minima iste eaque ipsa ea cumque quas maiores ratione vitae aliquid earum?
+                    Aperiam saepe, nesciunt ipsam cum vitae aspernatur velit nisi.</p>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vel in optio, inventore illum beatae
+                    natus molestiae qui omnis minima iste eaque ipsa ea cumque quas maiores ratione vitae aliquid earum?
+                    Aperiam saepe, nesciunt ipsam cum vitae aspernatur velit nisi.</p>
+                <button>Submit</button>
+                <button>Submit</button>
+            </div>
+
+            <div class="zx-tabs zx-tabs-hidden zx-tabs-show" data-tab="3">
+                <h2>Content 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vel in optio, inventore illum beatae
+                    natus molestiae qui omnis minima iste eaque ipsa ea cumque quas maiores ratione vitae aliquid earum?
+                    Aperiam saepe, nesciunt ipsam cum vitae aspernatur velit nisi.</p>
+
+                <h2>Lorem, ipsum dolor.</h2>
+                <h2>Lorem, ipsum dolor.</h2>
+                <button>Submit</button>
+            </div>
+
+
+            <div class="zx-tabs zx-tabs-hidden" data-tab="4">
+                <h2>Content 4</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vel in optio, inventore illum beatae
+                    natus molestiae qui omnis minima iste eaque ipsa ea cumque quas maiores ratione vitae aliquid earum?
+                    Aperiam saepe, nesciunt ipsam cum vitae aspernatur velit nisi.</p>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque vel in optio, inventore illum beatae
+                    natus molestiae qui omnis minima iste eaque ipsa ea cumque quas maiores ratione vitae aliquid earum?
+                    Aperiam saepe, nesciunt ipsam cum vitae aspernatur velit nisi.</p>
+                <button>Submit</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const btnGroup = document.querySelectorAll(".zx-btn");
+        const tabGroup = document.querySelectorAll(".zx-tabs");
+
+        tabGroup.forEach((eachTabs) => {
+
+            btnGroup.forEach((eachBtn) => {
+
+                eachBtn.addEventListener("click", () => {
+
+                    eachTabs.classList.remove("zx-tabs-show");
+                    //console.log(eachBtn);
+
+                    if (+eachBtn.dataset.fortab === +eachTabs.dataset.tab) {
+                        btnGroup.forEach(btn => { btn.classList.remove("btn-show") });
+
+                        eachTabs.classList.add("zx-tabs-show");
+                        eachBtn.classList.add("btn-show");
+                    };
+                });
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
