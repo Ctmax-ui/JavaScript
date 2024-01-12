@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h3>Open the console to play the game</h3>
+
+    <script>
+        let yourPick;
+        let aI;
+        let rock = 1
+        let paper = 2
+        let scissor = 3
+
+        let totalWin = 0;
+        let totalTries = 10;
+
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+
+        function rps() {
+            if (yourPick != '1' && yourPick != '2' && yourPick != '3') {
+                console.log('eror')
+                document.write('eror')
+                let yourPick = prompt('Pick: Rock = 1, Paper = 2, Sizor = 3. Pick the only number');
+            }
+            else if (aI == yourPick) {
+                console.log('draw');
+                document.write('draw');
+                // console.log('draw');
+                totalTries--
+            }
+            else if (aI == rock && yourPick == scissor) {
+                console.log('You lost: Ai = rock, you = paper');
+                document.write('You lost: Ai = rock, you = paper');
+                console.log('You lost');
+                document.write('You lost');
+                totalTries--
+            }
+            else if (aI == scissor && yourPick == paper) {
+                document.write('You lost: Ai = scissor,  you = paper');
+                console.log('You lost: Ai = scissor,  you = paper');
+                totalTries--
+            }
+            else if (aI == paper && yourPick == rock) {
+                console.log('You lost: Ai = paper, you = rock');
+                document.write('You lost: Ai = paper, you = rock');
+                totalTries--
+            }
+
+            else {
+                totalWin++;
+                totalTries--
+                console.log('you won total: ', totalWin,'Times,', ' Remaining tries: ', totalTries);
+                document.write('you won total: ', totalWin,'Times,', ' Remaining tries: ', totalTries);
+                if (aI == rock && yourPick == paper) {
+                    console.log("YOU WON:  Ai = Rock You = paper ");
+                    document.write("YOU WON:  Ai = Rock You = paper ");
+                }
+                else if (aI == scissor && yourPick == rock) {
+                    console.log("YOU WON:  Ai = scissor You = Rock ");
+                    document.write("YOU WON:  Ai = scissor You = Rock ");
+                }
+                else if (aI == paper && yourPick == scissor) {
+                    console.log(totalWin, " Times YOU WON:  Ai = Paper You = scissor ");
+                    document.write(totalWin, " Times YOU WON:  Ai = Paper You = scissor ");
+                }
+            };
+        }
+
+
+        for (let i = 0; i < 10; i++) {
+            yourPick = prompt('Pick: Rock = 1, Paper = 2, Sizor = 3. Pick the only number');
+            aI = getRandomInt(1, 3)
+            rps()
+        };
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

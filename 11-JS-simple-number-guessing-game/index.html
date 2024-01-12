@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>number guessing game</title>
+</head>
+
+<body>
+
+    <script>
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        };
+        let p;
+        let randomNum;
+        p = prompt('guess again')
+        callb()
+
+        function callb(s){
+        do {
+            randomNum = getRandomInt(1, 10);
+
+            if (p == randomNum) {
+                alert('you won your number was '+ p);
+            }
+            else if(p<randomNum){
+                p = prompt('guess again, your number was less than the original number')
+            }
+            else if(p>randomNum){
+                p = prompt('guess again, your number was bigger than the original number')
+            }
+            else{
+                p = prompt('Eror, try again')
+            }
+
+        } while (p != randomNum)
+    }
+    callb()
+
+
+    </script>
+
+
+</body>
+
+</html>
