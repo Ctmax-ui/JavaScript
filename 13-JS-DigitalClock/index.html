@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hanalei&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: "Hanalei", system-ui;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+h1{
+    text-align: center;
+    font-family: sans-serif;
+    margin: 10px 0;
+}
+
+        .container {
+            width: auto;
+            height: auto;
+            /* background: #c4c4c4; */
+            padding: 40px 70px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        .box {
+            padding: 30px;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: space-evenly;
+
+            background: linear-gradient(25deg,      #49e9ce 0%,
+                    #d4ff37 100%);
+            animation: gradient 5s linear infinite;
+            background-size: 1000% 1000%;
+        }
+
+        .box * {
+            border: 2px solid rgb(77, 77, 77);
+            font-size: 5rem;
+            font-style: normal;
+            width: 120px;
+            text-align: center;
+            border-radius: 20px;
+            background: linear-gradient(to right,
+                    #7953cd 20%,
+                    #00affa 30%,
+                    #0190cd 70%,
+                    #764ada 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 500% auto;
+            animation: textShine 5s linear infinite alternate;
+        }
+
+
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+
+        @keyframes textShine {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Digital Clock</h1>
+
+    <div class="container">
+        <div class="box">
+            <div class="hour">00</div>
+            
+            <div class="minute">00</div>
+            
+            <div class="second">00</div>
+        </div>
+    </div>
+
+
+    <script>
+        let u = setInterval(function allTime() {
+            let a = new Date();
+            let h = a.getHours();
+            let m = a.getMinutes();
+            let s = a.getSeconds();
+
+            let hour = document.getElementsByClassName('hour')[0]
+            let minute = document.getElementsByClassName('minute')[0]
+            let second = document.getElementsByClassName('second')[0]
+
+
+            hour.innerText = h;
+            minute.innerText = m
+            second.innerText = s
+        }, 100)
+    </script>
+</body>
+
+</html>
