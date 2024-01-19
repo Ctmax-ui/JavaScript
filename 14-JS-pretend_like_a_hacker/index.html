@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta neme="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hackerman</title>
+<style>
+    body {
+        background-color: black;
+        color: rgb(4, 255, 4);
+        font-family: sans-serif;
+        font-size: 1.5rem;
+        line-height: 50px;
+    }
+</style>
+
+<body>
+    <div class="text">
+
+    </div>
+
+
+    <script>
+        let textBox = document.getElementsByClassName('text')[0];
+
+        let allText = [
+            ' ▀▄▀▄▀▄Initializing the hack program▄▀▄▀▄▀',
+            '𝖥𝖺𝖼𝖾𝖻𝗈𝗈𝗄 𝗎𝗌𝖾𝗋𝗇𝖺𝗆𝖾 𝗁𝖺𝗌 𝖻𝖾𝖾𝗇 𝖿𝗈𝗎𝗇𝖽𝖾𝖽 the username is = "Harry"',
+            'ɦǟƈӄɨռɢ ɦǟֆ ɮɛɛռ ֆȶǟʀȶɛɖ..... ',
+            'Hacking The User ID', '𝗠𝗮𝘁𝗰𝗵𝗶𝗻𝗴 𝘁𝗵𝗲 𝗽𝗮𝘀𝘀𝘄𝗼𝗿𝗱...............',
+            'Wait a moment please...',
+            'Password has been Matched successfully, The Password is = " ****** " ',
+            '█▓▒▒░░░ The Hacking Has Been Complete Successfully ░░░▒▒▓█'
+
+        ]
+
+
+        function l() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[0]} <br>`);
+                }, 100);
+            });
+        }
+        function l2() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[1]} <br> `);
+                }, 1000);
+            });
+        }
+        function l3() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[2]} <br>`);
+                }, 2000);
+            });
+        }
+        function l4() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[3]} <br>`);
+                }, 1000);
+            });
+        }
+        function l5() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[4]} <br>`);
+                }, 1000);
+            });
+        }
+        function l6() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[5]} <br>`);
+                }, 4000);
+            });
+        }
+        function l7() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[6]} <br>`);
+                }, 1000);
+            });
+        }
+        function l8() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(textBox.innerHTML += `${allText[7]} <br>`);
+                }, 1000);
+            });
+        }
+
+        l().then(() => {
+            return l2();
+        }).then(() => {
+            return l3();
+        }).then(() => {
+            return l4();
+        }).then(() => {
+            return l5();
+        }).then(() => {
+            return l6();
+        }).then(() => {
+            return l7();
+        }).then(() => {
+            return l8();
+        })
+
+
+    </script>
+</body>
+
+</html>
